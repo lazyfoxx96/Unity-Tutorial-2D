@@ -1,9 +1,10 @@
-using JetBrains.Annotations;
+ï»¿using JetBrains.Annotations;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    //public <- À¯´ÏÆ¼ ¿¡µğÅÍ »ó¿¡¼­ º¸ÀÌµµ·Ï ¼³Á¤
+    //public <- ìœ ë‹ˆí‹° ì—ë””í„° ìƒì—ì„œ ë³´ì´ë„ë¡ ì„¤ì •
     public float moveSpeed = 10f;
 
     void Start()
@@ -11,29 +12,28 @@ public class Movement : MonoBehaviour
 
     }
 
-    //this : ÇöÀç ½ºÅ©¸³Æ®°¡ µé¾î°¡ÀÖ´Â ¿ÀºêÁ§Æ®
-    //this »©µµµÊ
+    //this : í˜„ì¬ ìŠ¤í¬ë¦½íŠ¸ê°€ ë“¤ì–´ê°€ìˆëŠ” ì˜¤ë¸Œì íŠ¸
+    //this ë¹¼ë„ë¨
     void Update()
     {
         //transform.position = transform.position + Vector3.forward * moveSpeed;
-        //                      ¾î¸ù¾î½º À§Ä¡       ¾ÕÂÊ->(0,0,1)   ¼Óµµ Á¶Àı º¯¼ö
-
-        if(Input.GetKey(KeyCode.W)) //¾ÕÀ¸·Î
+        //                      ì–´ëª½ì–´ìŠ¤ ìœ„ì¹˜       ì•ìª½->(0,0,1)   ì†ë„ ì¡°ì ˆ ë³€ìˆ˜
+        if(Input.GetKey(KeyCode.W)) //ì•ìœ¼ë¡œ
         {
             transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.S)) //µÚ·Î
+        if (Input.GetKey(KeyCode.S)) //ë’¤ë¡œ
         {
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.A)) // ¿ŞÂÊÀ¸·Î
+        if (Input.GetKey(KeyCode.A)) // ì™¼ìª½ìœ¼ë¡œ
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.D)) // ¿À¸¥ÂÊÀ¸·Î
+        if (Input.GetKey(KeyCode.D)) // ì˜¤ë¥¸ìª½ìœ¼ë¡œ
         {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
         }
