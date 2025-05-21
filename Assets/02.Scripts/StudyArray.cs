@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class StudyArray : MonoBehaviour
 {
-    //??덉읅獄쏄퀣肉?
+    //동적배열
     //public List<int> listNumber = new List<int>();
 
-    //癰궰??
+    //변수
     int number1 = 1;
     private int number2 = 2;
     public int number3 = 3;
     
-    [SerializeField] //private?쒖눘踰먲쭖??臾롫젏 癰귣똻釉??????誘???SerializeField???????곴퐣 ?醫롮뵬??띿쓺 ?醫딅빍?怨쀫퓠野껊슢彛???곷선餓Β椰꾧퀡?ゆ?癰귣????
+    [SerializeField] //private
     private int number4 = 4;
     
     [SerializeField] int number5 = 5;
@@ -25,7 +25,7 @@ public class StudyArray : MonoBehaviour
         //listNumber.Add(1);
         //listNumber.Add(67);
 
-        //Debug.Log($"?袁⑹삺 List????덈뮉 ?怨쀬뵠????: {listNumber.Count}");
-        //Debug.Log($"?袁⑹삺 List????덈뮉 筌띾뜆?筌??怨쀬뵠????: {listNumber[listNumber.Count-1]}");
+        //Debug.Log($"현재 List에 있는 데이터 수 : {listNumber.Count}");
+        //Debug.Log($"현재 List에 있는 마지막 데이터 : {listNumber[listNumber.Count-1]}");
     }
 }

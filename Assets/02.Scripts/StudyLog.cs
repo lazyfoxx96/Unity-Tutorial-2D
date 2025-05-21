@@ -1,24 +1,24 @@
 using System;
 using UnityEngine;
 
-//À¯´ÏÆ¼ ¿¡µğÅÍ¿¡ ÀÖ´Â Console View¿¡ Log¸¦ Å×½ºÆ®ÇÏ±â À§ÇÑ Å¬·¡½º
+//ìœ ë‹ˆí‹° ì—ë””í„°ì— ìˆëŠ” Console Viewì— Logë¥¼ í…ŒìŠ¤íŠ¸í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤
 public class StudyLog : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //ÇÔ¼ö È£Ãâ : Update()½ÇÇàÇÏ±â Àü, ¸ÕÀú ½ÇÇàÇÑ´Ù. 
-    //À¯´ÏÆ¼ ±âº» ÇÔ¼ö
+    //í•¨ìˆ˜ í˜¸ì¶œ : Update()ì‹¤í–‰í•˜ê¸° ì „, ë¨¼ì € ì‹¤í–‰í•œë‹¤. 
+    //ìœ ë‹ˆí‹° ê¸°ë³¸ í•¨ìˆ˜
     void Start()
     {
-        Debug.Log("Start ÇÔ¼ö ½ÇÇà"); // ÀÏ¹İÀûÀÎ ·Î±×
-        Debug.LogWarning("Start ÇÔ¼ö ½ÇÇà"); // °æ°í ·Î±×
-        Debug.LogError("Start ÇÔ¼ö ½ÇÇà"); // ¿¡·¯ ·Î±×
+        Debug.Log("Start í•¨ìˆ˜ ì‹¤í–‰"); // ì¼ë°˜ì ì¸ ë¡œê·¸
+        Debug.LogWarning("Start í•¨ìˆ˜ ì‹¤í–‰"); // ê²½ê³  ë¡œê·¸
+        Debug.LogError("Start í•¨ìˆ˜ ì‹¤í–‰"); // ì—ëŸ¬ ë¡œê·¸
     }
 
     // Update is called once per frame
-    //¾÷µ¥ÀÌÆ®´Â ÇÁ·¹ÀÓ¸¶´Ù ÇÑ¹ø¾¿ ½ÇÇàÇÑ´Ù.
-    //À¯´ÏÆ¼ ±âº» ÇÔ¼ö
+    //ì—…ë°ì´íŠ¸ëŠ” í”„ë ˆì„ë§ˆë‹¤ í•œë²ˆì”© ì‹¤í–‰í•œë‹¤.
+    //ìœ ë‹ˆí‹° ê¸°ë³¸ í•¨ìˆ˜
     void Update()
     {
-        //Debug.Log("Update ÇÔ¼ö ½ÇÇà");
+        //Debug.Log("Update í•¨ìˆ˜ ì‹¤í–‰");
     }
 }

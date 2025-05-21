@@ -361,8 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e36efa79967674498ce5f08ca8bba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1472632019}
-  changeName: Hello World
+  changeName: privateCamera
 --- !u!4 &1314063254
 Transform:
   m_ObjectHideFlags: 0
