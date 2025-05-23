@@ -16,43 +16,25 @@ public class Movement : MonoBehaviour
     //this 빼도됨
     void Update()
     {
-        /// input System (Old - Legacy)
-        /// 입력값에 대한 약속된 시스템
-        /// 이동 -> WASD, 화살표 키보드
-        /// 점프 -> Space
-        /// 총쏘기 -> 마우스 좌클릭
-
-        //transform.position = transform.position + Vector3.forward * moveSpeed;
-        //                      어몽어스 위치       앞쪽->(0,0,1)   속도 조절 변수
-        //if(Input.GetKey(KeyCode.W)) //앞으로
-        //{
-        //    transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
-        //}
-
-        //if (Input.GetKey(KeyCode.S)) //뒤로
-        //{
-        //    transform.position += Vector3.back * moveSpeed * Time.deltaTime;
-        //}
-
-        //if (Input.GetKey(KeyCode.A)) // 왼쪽으로
-        //{
-        //    transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        //}
-
-        //if (Input.GetKey(KeyCode.D)) // 오른쪽으로
-        //{
-        //    transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        //}
-
-        //x
+        //부드럽게 증감하는 값 -1 ~ 1
         float h = Input.GetAxis("Horizontal");
-        //z
         float v = Input.GetAxis("Vertical");
+
+        //딱 떨어지는 값 -1, 0, 1
+        //float h = Input.GetAxisRaw("Horizontal");
+        //float v = Input.GetAxisRaw("Vertical");
 
         //                        x  y  z
         Vector3 dir = new Vector3(h, 0, v);
-        Debug.Log($"현재 입력 : {dir}");
+        //nomalized 1, 1, 0.71
+        Vector3 normalDir = dir.normalized; // 정규화 과정 (0~1)
 
-        transform.position += dir * moveSpeed * Time.deltaTime;
+        //Debug.Log($"현재 입력 : {dir}");
+
+        transform.position += normalDir * moveSpeed * Time.deltaTime;
+
+        //회전 기능
+        //      바라보는 기능   현재 위치         방향
+        transform.LookAt(transform.position + normalDir);
     }
 }

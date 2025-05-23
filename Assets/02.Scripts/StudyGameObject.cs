@@ -13,7 +13,7 @@ public class StudyGameObject : MonoBehaviour
     //// 0,0,0,1
     //public Quaternion rot;
 
-    void Start()
+    void Awake()
     {
         //Debug.Log("생성되었습니다.");
         CreateAmongus();
@@ -48,16 +48,16 @@ public class StudyGameObject : MonoBehaviour
 
         //지역변수를 만들어서 담아서 쓰면 가독성 증가
         //지역변수는 함수가 종료되면 지역변수 삭제됨(메모리 해제)
-        Transform objTf = obj.transform;
-        int count = objTf.childCount;
+        //Transform objTf = obj.transform;
+        //int count = objTf.childCount;
 
-        Debug.Log($"캐릭터의 자식 오브젝트의 수 : {count}");
+        //Debug.Log($"캐릭터의 자식 오브젝트의 수 : {count}");
 
-        Debug.Log($"캐릭터의 첫번째 자식 오브젝트의 이름 : {objTf.GetChild(0).name}");
+        //Debug.Log($"캐릭터의 첫번째 자식 오브젝트의 이름 : {objTf.GetChild(0).name}");
 
-        Debug.Log($"캐릭터의 첫번째 자식 오브젝트의 이름 : {objTf.GetChild(count - 1).name}");
+        //Debug.Log($"캐릭터의 첫번째 자식 오브젝트의 이름 : {objTf.GetChild(count - 1).name}");
 
         //자식의 자식의 마지막오브젝트
-        Debug.Log($"캐릭터의 마지막 자식 오브젝트의 자식의 마지막 오브젝트의 이름 : {objTf.GetChild(count - 1).GetChild(objTf.GetChild(count - 1).childCount - 1).name}");
+        //Debug.Log($"캐릭터의 마지막 자식 오브젝트의 자식의 마지막 오브젝트의 이름 : {objTf.GetChild(count - 1).GetChild(objTf.GetChild(count - 1).childCount - 1).name}");
     }
 }
