@@ -353,7 +353,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4643521465287934, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 703244457}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1733945558841920, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
       insertIndex: -1
@@ -469,7 +472,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5.66
   m_Depth: -1
   m_CullingMask:
@@ -494,8 +497,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15961203, y: -0.4085396, z: 0.07294922, w: 0.8957108}
-  m_LocalPosition: {x: 60.99597, y: 29.023445, z: -39.981617}
+  m_LocalRotation: {x: 0.16793266, y: -0.8315946, z: 0.36191922, w: 0.38634658}
+  m_LocalPosition: {x: 33.44002, y: 45.76257, z: 28.799608}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -542,7 +545,6 @@ Transform:
   - {fileID: 992282782}
   - {fileID: 137279043}
   - {fileID: 729760129}
-  - {fileID: 703244457}
   - {fileID: 1570408459668571516}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -920,10 +922,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: -18.71894
+  revolutionSpeed: 9.533748
+  isRevolution: 1
 --- !u!1 &681407475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1066320961419670, guid: ec1861462fc1b46f1a1c1c3c0f1f7f15, type: 3}
@@ -951,7 +953,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 312968206}
+    m_TransformParent: {fileID: 256709530}
     m_Modifications:
     - target: {fileID: 1408581670749804, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_IsActive
@@ -979,19 +981,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.12904741
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.71
+      value: 1.5148091
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9986295
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.052335896
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1107,10 +1109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: 50.999554
+  revolutionSpeed: 58.66119
+  isRevolution: 1
 --- !u!1 &767146209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,10 +1179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: 22.183496
+  revolutionSpeed: 76.85906
+  isRevolution: 1
 --- !u!1001 &992282781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1278,10 +1280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: -41.639004
+  revolutionSpeed: 57.59489
+  isRevolution: 1
 --- !u!1 &1176224379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1408581670749804, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
@@ -1299,10 +1301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
+  targetPlanet: {fileID: 256709530}
   rotSpeed: 30
   revolutionSpeed: 100
-  isRevolution: 0
+  isRevolution: 1
 --- !u!850595691 &1182094114
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1381,10 +1383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: -98.99161
+  revolutionSpeed: 91.61192
+  isRevolution: 1
 --- !u!1 &1394872045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1377197793697218, guid: b4201d402613a4464b35c805dafcca62, type: 3}
@@ -1528,10 +1530,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: 8.506888
+  revolutionSpeed: 93.9903
+  isRevolution: 1
 --- !u!1 &1633565295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1733945558841920, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
@@ -1549,10 +1551,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: -56.117104
+  revolutionSpeed: 78.61169
+  isRevolution: 1
 --- !u!1 &1751048521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1526814149960808, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
@@ -1671,10 +1673,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: -77.23427
+  revolutionSpeed: 78.68491
+  isRevolution: 1
 --- !u!1001 &1946680567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1772,10 +1774,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc062020f925984ab4e8ab7961a11bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
-  rotSpeed: 30
-  revolutionSpeed: 100
-  isRevolution: 0
+  targetPlanet: {fileID: 593481699}
+  rotSpeed: 95.834625
+  revolutionSpeed: 87.616936
+  isRevolution: 1
 --- !u!1001 &1570408459668571515
 PrefabInstance:
   m_ObjectHideFlags: 0
