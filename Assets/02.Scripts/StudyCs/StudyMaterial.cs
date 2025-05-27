@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class StudyMaterial : MonoBehaviour
+{
+    //public Material mat;
+
+    public string hexCode;
+
+    void Start()
+    {
+        // this.GetComponent<MeshRenderer>().material = mat; // MeshRenderer에 접근해서 바꾸는 방식
+
+        // this.GetComponent<MeshRenderer>().sharedMaterial = mat; // MeshRenderer에 접근해서 바꾸는 방식
+
+        //this.GetComponent<MeshRenderer>().material.color = Color.green;
+
+        //this.GetComponent<MeshRenderer>().sharedMaterial.color = Color.green;
+
+        //this.GetComponent<MeshRenderer>().material.color = new Color(200f, 137f, 70f, 255f);
+
+        //this.GetComponent<MeshRenderer>().material.color = new Color(130f / 255f, 20f / 255f, 70f / 255f, 1);
+
+        Material mat = this.GetComponent<MeshRenderer>().material;
+        Color outPutColor;
+
+        if (ColorUtility.TryParseHtmlString(hexCode, out outPutColor))
+        {
+            mat.color = outPutColor;
+        }
+    }
+
+}

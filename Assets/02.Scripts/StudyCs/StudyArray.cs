@@ -1,3 +1,6 @@
+
+
+
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +9,16 @@ public class StudyArray : MonoBehaviour
 {
     //동적배열
     //public List<int> listNumber = new List<int>();
+
+
+
+
+
+
+
+
+
+
 
     //변수
     int number1 = 1;
