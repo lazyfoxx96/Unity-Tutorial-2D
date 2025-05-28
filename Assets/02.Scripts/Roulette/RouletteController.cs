@@ -26,6 +26,7 @@ public class RouletteController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("ㅇㅅㅇ");
             isStop = true;
         }
 
@@ -35,8 +36,10 @@ public class RouletteController : MonoBehaviour
             rotSpeed *= 0.98f; //현재 속도에서 특정 값만큼 줄이는 기능
 
             if (rotSpeed < 0.1f)
+            {
                 rotSpeed = 0f;
                 isStop = false;
+            }
         }
         
     }
