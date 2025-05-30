@@ -12,11 +12,19 @@ public class DoorEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        animator.SetTrigger("Open");
+        //     게임오브젝트에 접근하지않고 바로 tag를 가져옴
+        if(other.CompareTag("Player"))
+        {   
+            animator.SetTrigger("Open");
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        animator.SetTrigger("Close");
+        if (other.CompareTag("Player"))
+        {
+            animator.SetTrigger("Close");
+    
+        }
     }
 }

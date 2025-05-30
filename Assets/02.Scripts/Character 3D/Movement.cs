@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     //public <- 유니티 에디터 상에서 보이도록 설정
     public float moveSpeed = 10f;
 
+    public static int coinCount = 0;
+
     void Start()
     {
 
