@@ -17,6 +17,7 @@ public class CharacterMovement : MonoBehaviour
     {
         characterRb = GetComponent<Rigidbody2D>();
 
+        //spriteRenderer를 가지고있는 자식들을 모두 가져와라
         //                               true를 넣으면 비활성화된 오브젝트도 모두 가져온다.
         renderers = GetComponentsInChildren<SpriteRenderer>(true);
     }
@@ -47,6 +48,7 @@ public class CharacterMovement : MonoBehaviour
 
         renderers[0].gameObject.SetActive(false); // Idle
         renderers[1].gameObject.SetActive(false); // Run
+        renderers[2].gameObject.SetActive(true); // Jump
     }
 
     /// <summary>
@@ -69,11 +71,13 @@ public class CharacterMovement : MonoBehaviour
             {
                 renderers[0].flipX = false;
                 renderers[1].flipX = false;
+                renderers[2].flipX = false;
             }
             else if (h < 0)
             {
                 renderers[0].flipX = true;
                 renderers[1].flipX = true;
+                renderers[2].flipX = true;
             }
 
         }
@@ -94,7 +98,6 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump")) // Input.GetKeyDown(KeyDown.Space)와 동일
         {
             characterRb.AddForceY(jumpPower, ForceMode2D.Impulse);
-            renderers[2].gameObject.SetActive(true); // Jump
         }
     }
 }

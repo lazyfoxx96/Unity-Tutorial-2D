@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cat;
 
 public class CatController : MonoBehaviour
 {
@@ -7,9 +8,12 @@ public class CatController : MonoBehaviour
     /// Rigidbody2D 타입을 만들어 GetComponent로 cat의 rigidbody를 가져옴
     /// </summary>
 
-    private Rigidbody2D catRb;
-    public float jumpPower = 10f;
+    public SoundManager soundManager;
 
+    private Rigidbody2D catRb;
+    private Animator catAnim;
+
+    public float jumpPower = 10f;
     public bool isGround = false;
 
     public int jumpCount = 0;
@@ -17,6 +21,7 @@ public class CatController : MonoBehaviour
     void Start()
     {
         catRb = GetComponent<Rigidbody2D>();
+        catAnim = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,11 +31,15 @@ public class CatController : MonoBehaviour
         //                                  jumpCount < 2 -> 2단 점프까지 허용
         if(Input.GetKeyDown(KeyCode.Space) && jumpCount < 2) 
         {
+            catAnim.SetTrigger("Jump");
+            catAnim.SetBool("isGround", false);
             // 점프 = y축 방향을 이동 X
             // 힘을 가하는 방식을 택함
             //                       Impulse 순간적으로 힘을 가하는 방식
             catRb.AddForceY(jumpPower, ForceMode2D.Impulse);
             jumpCount++;
+
+            soundManager.OnJumpSound();
         }
     }
 
@@ -38,13 +47,9 @@ public class CatController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
+            catAnim.SetBool("isGround", true);
             jumpCount = 0;
             isGround = true;
-        }
-
-        if(transform.rotation.z != 0f)
-        {
-           
         }
         
     }
