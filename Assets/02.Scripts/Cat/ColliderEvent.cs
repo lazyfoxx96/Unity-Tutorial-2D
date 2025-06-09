@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ColliderEvent : MonoBehaviour
 {
+
+    public GameObject fadeUI;
+
     /// <summary>
     /// 상호작용하는 둘 다 isTrigger = false일 경우 호출
     /// </summary>
@@ -27,6 +30,7 @@ public class ColliderEvent : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            fadeUI.SetActive(true);
             Debug.Log("Game Over");
         }
     }

@@ -13,10 +13,12 @@ public class CatController : MonoBehaviour
     private Rigidbody2D catRb;
     private Animator catAnim;
 
-    public float jumpPower = 10f;
     public bool isGround = false;
 
     public int jumpCount = 0;
+
+    public float jumpPower = 10f;
+    public float limitPower = 20f;
 
     void Start()
     {
@@ -29,7 +31,7 @@ public class CatController : MonoBehaviour
         //스페이스 키 입력
         //                      (isGround) 같은거임 (isGround == true) -> 2단점프 방지
         //                                  jumpCount < 2 -> 2단 점프까지 허용
-        if(Input.GetKeyDown(KeyCode.Space) && jumpCount < 2) 
+        if(Input.GetKeyDown(KeyCode.Space) && jumpCount < 5) 
         {
             catAnim.SetTrigger("Jump");
             catAnim.SetBool("isGround", false);
@@ -40,6 +42,9 @@ public class CatController : MonoBehaviour
             jumpCount++;
 
             soundManager.OnJumpSound();
+
+            if (catRb.linearVelocityY > limitPower) // 자연스러운 점프를 위한 속도 제한
+                catRb.linearVelocityY = limitPower;
         }
     }
 
