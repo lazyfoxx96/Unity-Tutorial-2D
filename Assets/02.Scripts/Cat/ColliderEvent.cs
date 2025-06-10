@@ -30,7 +30,7 @@ public class ColliderEvent : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            fadeUI.SetActive(true);
+            //fadeUI.SetActive(true);
             Debug.Log("Game Over");
         }
     }

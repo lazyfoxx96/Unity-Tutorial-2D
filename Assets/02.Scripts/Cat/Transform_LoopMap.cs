@@ -34,16 +34,23 @@ using UnityEngine;
 public class Transform_LoopMap : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float returnPosX = 11f;
+    public float returnPosX = 13f;
     public float randomPosY;
-    
+
+    private void Start()
+    {
+        randomPosY = Random.Range(-8f, -5f);
+
+        transform.position = new Vector3(transform.position.x, randomPosY, 1);
+    }
+
     void Update()
     {
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
 
         if (transform.position.x <= -returnPosX)
         {
-            randomPosY = Random.Range(-8f, -2.5f);
+            randomPosY = Random.Range(-8f, -5f);
             transform.position = new Vector3(returnPosX, randomPosY, 1);
         }
     }

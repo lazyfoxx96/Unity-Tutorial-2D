@@ -4,23 +4,27 @@ namespace Cat
 {
     public class SoundManager : MonoBehaviour
     {
-        private AudioSource audioSource;
-        public AudioClip bgmClip;
+        public AudioSource audioSource;
+        public AudioClip introBgmClip;
+        public AudioClip playBgmClip;
         public AudioClip jumpClip;
+        public AudioClip colliderClip;
 
-        private void Start()
+        public void SetBGMSound(string bgmName)
         {
-            audioSource = GetComponent<AudioSource>();
-            SetBGMSound();
-        }
-
-        public void SetBGMSound()
-        {
-            audioSource.clip = bgmClip; // 오디오 소스 사운드 파일 설정
+            if(bgmName == "Intro")
+            {
+                audioSource.clip = introBgmClip; // 오디오 소스 사운드 파일 설정
+            }
+            else if(bgmName == "Play")
+            {
+                audioSource.clip = playBgmClip; // 오디오 소스 사운드 파일 설정
+            }
+            
             audioSource.playOnAwake = true; //시작할때 자동 재생
             audioSource.loop = true; // 자동 반복 기능
 
-            audioSource.volume = 0.01f; // 음량
+            audioSource.volume = 0.1f; // 음량
             audioSource.Play(); // 시작
         }
 
@@ -32,6 +36,11 @@ namespace Cat
         {
             //이벤트 사운드
             audioSource.PlayOneShot(jumpClip);
+        }
+
+        public void OnColliderSound()
+        {
+            audioSource.PlayOneShot(colliderClip);
         }
 
     }
