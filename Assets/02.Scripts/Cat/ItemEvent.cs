@@ -13,11 +13,25 @@ public class ItemEvent : MonoBehaviour
     public float returnPosX = 13f;
     public float randomPosY;
 
+    public Vector3 initPos;
+
+    private void Awake()
+    {
+        initPos = transform.localPosition;
+    }
+
+    /*
     private void Start()
     {
         //randomPosY = Random.Range(-8f, -5f);
         //transform.position = new Vector3(transform.position.x, randomPosY, 1);
         SetRandomSetting(transform.position.x);
+    }
+    */
+
+    private void OnEnable()
+    {
+        SetRandomSetting(initPos.x + 10f);
     }
 
     void Update()

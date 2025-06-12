@@ -30,13 +30,25 @@ public class CatController : MonoBehaviour
     public float jumpPower = 10f;
     public float limitPower = 20f;
 
-    void Start()
+    //1번만 실행
+    void Awake()
     {
         catRb = GetComponent<Rigidbody2D>();
         catAnim = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        transform.localPosition = new Vector3 (-6.4f, -1.3f, 0f);
+        GetComponent<CircleCollider2D>().enabled = true;
+        soundManager.audioSource.mute = false;
+    }
     void Update()
+    {
+        Jump();
+    }
+
+    private void Jump()
     {
         //스페이스 키 입력
         //                      (isGround) 같은거임 (isGround == true) -> 2단점프 방지
@@ -76,7 +88,7 @@ public class CatController : MonoBehaviour
             {
                 fadeUI.SetActive(true); //페이드 ui 켜기
                 //성공페이드
-                fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white); //fadeRoutine에 접근해서 onFade함수 호출 
+                fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white, true); //fadeRoutine에 접근해서 onFade함수 호출 
 
                 this.GetComponent<CircleCollider2D>().enabled = false;
 
@@ -97,7 +109,7 @@ public class CatController : MonoBehaviour
             gameOverUI.SetActive(true); //게임오버 켜기
             fadeUI.SetActive(true); //페이드 ui 켜기
             //실패페이드
-            fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black); //fadeRoutine에 접근해서 onFade함수 호출
+            fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black, true); //fadeRoutine에 접근해서 onFade함수 호출
 
             this.GetComponent<CircleCollider2D>().enabled = false;
             
@@ -119,14 +131,26 @@ public class CatController : MonoBehaviour
     {
         //뒤에 적힌 값만큼 대기
         yield return new WaitForSeconds(3.5f);
+        // PLAY 그룹 오브젝트 OFF
+        
+
         videoManager.VideoPlay(isHappy);
+        yield return new WaitForSeconds(1f);
 
+        //var newColor = isHappy ? Color.white : Color.black;
+        //fadeUI.GetComponent<FadeRoutine>().OnFade(3f, newColor, true);
+
+        //yield return new WaitForSeconds(3f);
         //yield return new WaitUntil(() => videoManager.vPlayer.isPlaying);
-
         fadeUI.SetActive(false);
         gameOverUI.SetActive(false);
         soundManager.audioSource.mute = true;
+
+        transform.parent.gameObject.SetActive(false);
     }
+
+
+
 
     /*
     private void HappyVideo()
