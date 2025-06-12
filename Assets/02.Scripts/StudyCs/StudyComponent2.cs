@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class StudyComponent2 : MonoBehaviour
