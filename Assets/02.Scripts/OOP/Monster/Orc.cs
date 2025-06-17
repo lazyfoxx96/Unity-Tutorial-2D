@@ -1,17 +1,7 @@
-using UnityEngine;
-
 public class Orc : Monster
 {
-    public float hp;
-    public float moveSpeed;
-
-    public void Move()
+    public override void SetHealth()
     {
-        Debug.Log("Move");
-    }
-
-    public void Attack()
-    {
-        Debug.Log("Attack");
+        hp = 100f;
     }
 }

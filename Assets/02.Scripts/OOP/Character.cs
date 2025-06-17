@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
         {
             IDropItem item = other.GetComponent<IDropItem>();
 
-            item.Grab();
+            //item.Grab(Transform grabPos);
 
             currentItem = item;
         }

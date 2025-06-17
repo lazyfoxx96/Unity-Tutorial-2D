@@ -1,25 +1,31 @@
 using UnityEngine;
 
-public class FlashLight : MonoBehaviour
+public class FlashLight : MonoBehaviour, IDropItem
 {
     public GameObject lightObj;
-    public bool isLight;
 
-    public void Grab()
+    public void Grab(Transform grabPos)
     {
-        Debug.Log("손전등을 주웠다..");
+        transform.SetParent(grabPos);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        //transform.position = grabPos.position;
+
+        Debug.Log("손전등을 주웠다.");
     }
 
     public void Use()
     {
-        isLight = !isLight;
-        lightObj.SetActive(isLight);
+        lightObj.SetActive(!lightObj.activeSelf);
 
-        Debug.Log("라이트를 켠다.");
+        Debug.Log("손전등을 켠다.");
     }
 
     public void Drop()
     {
-        Debug.Log("손전등을 버렸다..");
+        transform.SetParent(null);
+        transform.position = Vector3.zero;
+
+        Debug.Log("손전등을 버렸다.");
     }
 }
