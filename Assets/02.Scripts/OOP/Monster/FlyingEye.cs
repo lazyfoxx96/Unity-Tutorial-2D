@@ -1,13 +1,10 @@
 using UnityEngine;
 
-public class Goblin : Monster
+public class FlyingEye : Monster
 {
     public override void Init()
     {
         hp = 2f;
-        moveSpeed = 3f;
-        
+        moveSpeed = 5f;
     }
-
-
 }
