@@ -1,10 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
     //이미 정해진 개수가 있는 경우
     [SerializeField] private GameObject[] monsters;
+
+    private List<Monster> monsterList = new List<Monster>();
 
     [SerializeField] private GameObject[] items;
 
@@ -24,8 +27,17 @@ public class SpawnManager : MonoBehaviour
             var createPos = new Vector3(randomX, randomY, 0);
 
             //몬스터를 생성하는 기능
-            Instantiate(monsters[randomIndex], createPos, Quaternion.identity);
+            GameObject monster = Instantiate(monsters[randomIndex], createPos, Quaternion.identity);
 
+            //monsterList.Add(monster.GetComponent<Monster>());
+            //Debug.Log($"현재 몬스터 수 : {monsterList.Count}");
+
+            //int ranDir = Random.Range(0,2) > 0 ? 1 : -1;
+
+            //monster.GetComponent<Monster>().Dir = ranDir;
+            //Debug.Log($"ㅇㅅㅇ{ranDir}");
+            //monster.GetComponent<Monster>().SetFlip(ranDir);
+            //Debug.Log("ㅇㅅㅇ4");
         }
     }
 
