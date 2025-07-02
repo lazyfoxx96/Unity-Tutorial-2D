@@ -2,26 +2,70 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Goblin : MonsterCore
 {
     private float timer;
     private float idelTime, patrolTime;
     private float traceDist = 5f;
-    private float attackDist = 2f;
+    private float attackDist = 1.5f;
 
     private bool isAttack;
 
     private void Start()
     {
-        Init(10f, 3f, 2f);
+        Init(30f, 3f, 2f, 10f);
 
-        //StartCoroutine(FindPlayerRoutine());
+        StartCoroutine(FindPlayerRoutine());
     }
 
-    protected override void Init(float hp, float speed, float attackTime)
+    protected override void Init(float hp, float speed, float attackTime, float atkDamage)
     {
-        base.Init(hp, speed, attackTime);
+        base.Init(hp, speed, attackTime, atkDamage);
+
+        idelTime = Random.Range(1f, 5f);
+
+    }
+
+    IEnumerator FindPlayerRoutine()
+    {
+        while(true)
+        {
+            yield return null;
+            targetDist = Vector3.Distance(transform.position, target.position);
+
+            if (monsterState == MonsterState.IDLE || monsterState == MonsterState.PATROL)
+            {
+                // 몬스터가 바라보는 방향
+                var monsterDir = Vector3.right * moveDir;
+                //                    몬스터               플레이어 -> 플레이어가 몬스터를 바라보는 방향
+                var playerDir = (transform.position - target.position).normalized;
+                float dotValue = Vector3.Dot(monsterDir, playerDir);
+                isTrace = dotValue < -0.8f && dotValue >= -1f;
+
+                if (targetDist <= traceDist && isTrace)
+                {
+                    animator.SetBool("isRun", true);
+                    ChangeState(MonsterState.TRACE);
+                }
+            }
+            else if (monsterState == MonsterState.TRACE)
+            {
+                if (targetDist > traceDist)
+                {
+                    timer = 0f;
+                    idelTime = Random.Range(1f, 5f);
+                    animator.SetBool("isRun", false);
+                    ChangeState(MonsterState.IDLE);
+                }
+
+                if (targetDist < attackDist)
+                {
+                    ChangeState(MonsterState.ATTACK);
+                }
+            }
+        }
     }
 
     public override void Idle()
@@ -32,23 +76,15 @@ public class Goblin : MonsterCore
             timer = 0f;
             moveDir = Random.Range(0, 2) == 1 ? 1 : -1;
             transform.localScale = new Vector3(moveDir, 1, 1);
+            hpBar.transform.localScale = new Vector3(moveDir, 1, 1);
+
             patrolTime = Random.Range(1f, 5f);
             animator.SetBool("isRun", true);
 
             ChangeState(MonsterState.PATROL);
         }
-
-        if(targetDist <= traceDist && isTrace)
-        {
-            
-
-            timer = 0f;
-            animator.SetBool("isRun", true);
-
-            ChangeState(MonsterState.TRACE);
-        }
     }
-
+    
     public override void Patrol()
     {
         transform.position += Vector3.right * moveDir * speed * Time.deltaTime;
@@ -57,18 +93,10 @@ public class Goblin : MonsterCore
         if ( timer >= patrolTime)
         {
             timer = 0f;
-
             idelTime = Random.Range(1f, 5f);
-
             animator.SetBool("isRun", false);
 
             ChangeState(MonsterState.IDLE);
-        }
-
-        if (targetDist <= traceDist && isTrace)
-        {
-            timer = 0f;
-            ChangeState(MonsterState.TRACE);
         }
     }
 
@@ -80,16 +108,7 @@ public class Goblin : MonsterCore
         var scaleX = targetDir.x > 0 ? 1 : -1;
         transform.localScale = new Vector3(scaleX, 1, 1);
 
-        if (targetDist > traceDist)
-        {
-            animator.SetBool("isRun", false);
-            ChangeState(MonsterState.IDLE);
-        }
-
-        if(targetDist < attackDist) 
-        {
-            ChangeState(MonsterState.ATTACK);
-        }
+        hpBar.transform.localScale = new Vector3(scaleX, 1, 1);
     }
 
     public override void Attack()
@@ -102,12 +121,18 @@ public class Goblin : MonsterCore
     {
         isAttack = true;
         animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(1f);
+        float currAnimLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(currAnimLength);
+
         animator.SetBool("isRun", false);
+        var targetDir = (target.position - transform.position).normalized;
+        var scaleX = targetDir.x > 0 ? 1 : -1;
+        transform.localScale = new Vector3(scaleX, 1, 1);
+        hpBar.transform.localScale = new Vector3(scaleX, 1, 1);
 
         yield return new WaitForSeconds(attackTime - 1f);
-
         isAttack = false;
-        ChangeState (MonsterState.IDLE);
+        animator.SetBool("isRun", true);
+        ChangeState (MonsterState.TRACE);
     }
 }
