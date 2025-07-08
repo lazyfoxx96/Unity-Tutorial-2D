@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -108,11 +109,21 @@ public abstract class MonsterCore : MonoBehaviour, IDamageable
 
     public void Death()
     {
+        isDead = true;
         animator.SetTrigger("Death");
         monsterColl.enabled = false;
         monsterRb.gravityScale = 0;
-        isDead = true;
 
-        itemManager.DropItem(transform.position);
+        int itemCount = Random.Range(0, 3);
+        
+        if(itemCount > 0)
+        {
+            for (int i = 0; i < itemCount; i++)
+            {
+                Debug.Log($"drop item -> {itemCount}");
+                itemManager.DropItem(transform.position);
+            }
+        }
+        
     }
 }

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PortalController : MonoBehaviour
 {
+    public enum SceneType { TOWN, ADVENTURE }
+    public SceneType sceneType = SceneType.TOWN;
+
     public HouseFadeRoutine fade;
 
     public GameObject portalEffect;
@@ -36,8 +39,15 @@ public class PortalController : MonoBehaviour
             yield return null;
         }
 
-        //씬 변경
-        SceneManager.LoadScene(1);
+        if(sceneType == SceneType.TOWN)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+
 
     }
 }

@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class HpPotion : MonoBehaviour, IItemObject
 {
+    public ItemManager Inventory { get; set; }
+
     public GameObject Obj { get; set; }
     public string ItemName { get; set; }
     public Sprite Icon { get; set; }
-    public ItemManager Inventory { get; set; }
 
     void Start()
     {
